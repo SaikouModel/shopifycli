@@ -1,0 +1,28 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "465c768cd19f449339eceac222eb97b6"
+name = "Spotify Music Player"
+handle = "spotify-music-player"
+application_url = "https://glorious-acorn-pjp64q45wg7537jxw-4040.app.github.dev"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "music-player-testing.myshopify.com"
+
+[auth]
+redirect_urls = [
+  "https://glorious-acorn-pjp64q45wg7537jxw-4040.app.github.dev/auth/callback",
+  "https://glorious-acorn-pjp64q45wg7537jxw-4040.app.github.dev/auth/shopify/callback",
+  "https://glorious-acorn-pjp64q45wg7537jxw-4040.app.github.dev/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+[pos]
+embedded = false
